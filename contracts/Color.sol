@@ -25,7 +25,7 @@ contract Color is ERC721, ERC721Enumerable {
     }
 
     function mint(string memory _color) public {
-        require(!_colorExists[_color]);
+        require(!_colorExists[_color], "The token for that color hex is already created!");
         colors.push(_color);
         uint _id = colors.length;
         _mint(msg.sender, _id);
